@@ -1,0 +1,8 @@
+version: '3.9'
+
+services:
+  go-hello-world:
+    image: leebrouse7/go-hello-world:latest  # 使用 DockerHub 上的镜像
+    container_name: go-hello-world-container
+    ports:
+      - "8080:8080"  # 映射容器的 8080 端口到宿主机的 8080 端口

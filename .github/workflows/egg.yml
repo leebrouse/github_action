@@ -9,6 +9,9 @@ on:
 jobs:
   test-and-build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        service: [go-hello-world,go-login,go-test] # 你可以在这里添加更多的服务
 
     steps:
       - name: Checkout code
@@ -29,9 +32,9 @@ jobs:
           password: ${{secrets.DOCKER_HUB_SECRET }}
 
       - name: Build and Push Docker image
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v5 
         with:
-          context: ./go-hello-world
-          file: ./go-hello-world/Dockerfile
+          context: ../../${{ matrix.service }}
+          file: ../../${{ matrix.service }}/Dockerfile
           push: true
-          tags: leebrouse7/github_action:latest
+          tags: ${{secrets.DOCKER_HUB_NAME }}/${{ matrix.service }}:latest
