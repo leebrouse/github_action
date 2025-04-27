@@ -34,4 +34,4 @@ jobs:
           context: ./go-hello-world
           file: ./go-hello-world/Dockerfile
           push: true
-          tags: leebrouse/go-hello-world:latest
+          tags: leebrouse7/github_action:latest
