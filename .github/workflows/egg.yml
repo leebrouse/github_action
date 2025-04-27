@@ -1,1 +1,7 @@
+# when
 on: push
+
+# jobs
+jobs: 
+  job1:
+  job2:
