@@ -31,6 +31,7 @@ jobs:
       - name: Build and Push Docker image
         uses: docker/build-push-action@v5
         with:
-          context: ../../go-hello-world/Dockerfile
+          context: ./go-hello-world
+          file: ./go-hello-world/Dockerfile
           push: true
           tags: leebrouse/go-hello-world:latest
